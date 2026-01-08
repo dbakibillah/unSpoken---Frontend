@@ -2,7 +2,10 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-20 pb-16 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500">
+    <section
+      id="home"
+      className="pt-20 pb-16 bg-gradient-to-r from-teal-500 to-green-800"
+    >
       <div className="container mx-auto px-4">
         {/* Hero Text */}
         <div className="max-w-4xl mx-auto text-center text-white py-12">
@@ -13,7 +16,7 @@ const Hero = () => {
             Share emotions through colors and shapes. Connect hearts without saying a single word.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-transform duration-300 text-lg shadow-lg">
+            <button className="px-8 py-3 bg-white text-teal-600 font-semibold rounded-lg hover:bg-gray-100 hover:scale-105 transition-transform duration-300 text-lg shadow-lg">
               Start Drawing
             </button>
             <button className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white/20 hover:scale-105 transition-transform duration-300 text-lg">
