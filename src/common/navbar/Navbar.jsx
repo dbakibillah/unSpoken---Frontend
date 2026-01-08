@@ -71,8 +71,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
               isActive
-                ? "text-white bg-linear-to-r from-primary to-secondary shadow-lg"
-                : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
+                : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
             }`
           }
         >
@@ -81,31 +81,31 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/shop"
+          to="/canvas"
           className={({ isActive }) =>
             `px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
               isActive
-                ? "text-white bg-linear-to-r from-primary to-secondary shadow-lg"
-                : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
+                : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
             }`
           }
         >
-          Shop
+          Canvas
         </NavLink>
       </li>
       {user && (
         <li>
           <NavLink
-            to="/forum"
+            to="/chat"
             className={({ isActive }) =>
               `px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
                 isActive
-                  ? "text-white bg-linear-to-r from-primary to-secondary shadow-lg"
-                  : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                  ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
               }`
             }
           >
-            Forum
+            Chat💬
           </NavLink>
         </li>
       )}
@@ -115,8 +115,8 @@ const Navbar = () => {
           onClick={() => setServicesOpen(!servicesOpen)}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
             servicesOpen
-              ? "text-white bg-linear-to-r from-primary to-secondary shadow-lg"
-              : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+              ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
+              : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
           }`}
         >
           Services
@@ -140,13 +140,13 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `flex items-center px-4 py-3.5 text-sm font-medium transition-all duration-300 ${
                   isActive
-                    ? "bg-primary/10 text-primary border-l-4 border-primary"
-                    : "text-gray-700 hover:bg-gray-50 hover:pl-5 hover:text-primary"
+                    ? "bg-teal-500/10 text-teal-500 border-l-4 border-teal-500"
+                    : "text-gray-700 hover:bg-gray-50 hover:pl-5 hover:text-teal-500"
                 }`
               }
               onClick={() => setServicesOpen(false)}
             >
-              <span className="mr-3 text-lg text-primary">{service.icon}</span>
+              <span className="mr-3 text-lg text-teal-500">{service.icon}</span>
               {service.name}
             </NavLink>
           ))}
@@ -157,7 +157,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white/90 backdrop-blur-xl sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 p-2">
         <div className="flex items-center justify-between">
           {/* Mobile menu button */}
           <div className="lg:hidden" ref={mobileMenuRef}>
@@ -194,7 +194,7 @@ const Navbar = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="cursor-pointer group">
                   <div className="relative">
-                    <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary group-hover:ring-offset-2 ring-offset-white transition-all duration-300">
+                    <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-teal-500 group-hover:ring-offset-2 ring-offset-white transition-all duration-300">
                       <img
                         src={
                           user.photoURL ||
@@ -213,7 +213,7 @@ const Navbar = () => {
                 >
                   <li className="px-4 py-4 bg-linear-to-r from-gray-50 to-white rounded-xl">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-primary/30">
+                      <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-teal-500/30">
                         <img
                           src={
                             user.photoURL ||
@@ -235,12 +235,12 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/dashboard"
-                      className="flex items-center px-4 py-3.5 text-sm font-medium text-gray-700 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-300 hover:pl-5"
+                      to="/profile"
+                      className="flex items-center px-4 py-3.5 text-sm font-medium text-gray-700 hover:bg-teal-500/5 hover:text-teal-500 rounded-lg transition-all duration-300 hover:pl-5"
                       onClick={() => document.activeElement.blur()}
                     >
-                      <BsGrid3X3Gap className="w-5 h-5 mr-3 text-primary" />
-                      Dashboard
+                      <BsGrid3X3Gap className="w-5 h-5 mr-3 text-teal-500" />
+                      Profile
                     </Link>
                   </li>
                   <li>
@@ -258,7 +258,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-3">
                 <Link
                   to="/login"
-                  className="px-8 py-3 rounded-full bg-linear-to-r from-primary via-primary/90 to-secondary text-white font-semibold hover:from-secondary hover:to-primary hover:shadow-xl transition-all duration-500 shadow-lg hover:-translate-y-0.5 transform"
+                  className="px-8 py-3 rounded-full bg-linear-to-r from-teal-500 via-teal-500/90 to-green-800 text-white font-semibold hover:from-green-800 hover:to-teal-500 hover:shadow-xl transition-all duration-500 shadow-lg hover:-translate-y-0.5 transform"
                 >
                   Login
                   <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
