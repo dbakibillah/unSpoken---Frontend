@@ -8,26 +8,30 @@ import CanvaSection from "./pages/canvas/CanvaSection";
 import Community from "./pages/community/Community";
 import Home from "./pages/home/Home";
 import MainProfile from "./pages/profile/components/MainProfile";
+import MessageSection from "./pages/chat/components/MessageSection";
 import AuthProvider from "./providers/AuthProviders";
 import Root from "./routes/Root";
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path="/" element={<Root />}>
-            <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Registration />} />
-            <Route path="/profile" element={<MainProfile />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/canvas" element={<CanvaSection />} />
-          </Route>
-        </Routes>
-      </QueryClientProvider>
-    </AuthProvider>
-  </BrowserRouter>
+
+    <BrowserRouter>
+        <AuthProvider>
+            <QueryClientProvider client={queryClient}>
+                <Routes>
+                    <Route path="/" element={<Root />}>
+                        <Route index element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Registration />} />
+                        <Route path="/profile" element={<MainProfile />} />
+                        <Route path="/chat" element={<MessageSection />} />
+                        <Route path="/canvas" element={<CanvaSection />} />
+                        <Route path="/community" element={<Community />} />
+                    </Route>
+                </Routes>
+            </QueryClientProvider>
+        </AuthProvider>
+    </BrowserRouter>
+
 );

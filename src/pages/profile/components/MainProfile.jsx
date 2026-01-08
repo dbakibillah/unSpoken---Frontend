@@ -2,16 +2,9 @@ import React from "react";
 
 const MainProfile = () => {
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container mx-auto px-4">
       {/* Profile Header */}
       <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
-        {/* Cover Photo */}
-        <div className="h-64 bg-gradient-to-r from-teal-500 via-teal-600 to-green-800 relative">
-          <button className="absolute top-4 right-4 px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition">
-            Edit Cover
-          </button>
-        </div>
-
         {/* Profile Info */}
         <div className="px-8 pb-8">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between -mt-16">
