@@ -109,6 +109,22 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
+      {user && (
+        <li>
+          <NavLink
+            to="/community"
+            className={({ isActive }) =>
+              `px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
+                isActive
+                  ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
+              }`
+            }
+          >
+            Community
+          </NavLink>
+        </li>
+      )}
 
       <li className="relative" ref={servicesRef}>
         <button
