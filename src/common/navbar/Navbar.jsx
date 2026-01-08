@@ -2,28 +2,20 @@ import { useContext, useEffect, useRef, useState } from "react";
 import {
   BsBoxArrowRight,
   BsGrid3X3Gap,
-  BsHeartPulse,
-  BsList,
-  BsScissors,
+  BsList
 } from "react-icons/bs";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { Link, NavLink } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const servicesRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
-        setServicesOpen(false);
-      }
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target)
@@ -57,11 +49,6 @@ const Navbar = () => {
         });
       });
   };
-
-  const services = [
-    { name: "Pet Grooming", path: "/grooming", icon: <BsScissors /> },
-    { name: "Healthcare", path: "/healthcare", icon: <BsHeartPulse /> },
-  ];
 
   const navLinks = (
     <>
@@ -125,49 +112,6 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
-
-      <li className="relative" ref={servicesRef}>
-        <button
-          onClick={() => setServicesOpen(!servicesOpen)}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-medium ${
-            servicesOpen
-              ? "text-white bg-linear-to-r from-teal-500 to-green-800 shadow-lg"
-              : "text-gray-700 hover:bg-gray-50 hover:text-teal-500"
-          }`}
-        >
-          Services
-          <IoMdArrowDropdown
-            className={`transition-transform duration-300 text-lg ${
-              servicesOpen ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-        <div
-          className={`absolute left-0 top-full mt-3 w-64 origin-top-left rounded-xl bg-white shadow-2xl ring-1 ring-gray-200 focus:outline-none transition-all duration-300 z-50 overflow-hidden ${
-            servicesOpen
-              ? "opacity-100 scale-100 translate-y-0 visible"
-              : "opacity-0 scale-95 -translate-y-2 invisible"
-          }`}
-        >
-          {services.map((service) => (
-            <NavLink
-              key={service.path}
-              to={service.path}
-              className={({ isActive }) =>
-                `flex items-center px-4 py-3.5 text-sm font-medium transition-all duration-300 ${
-                  isActive
-                    ? "bg-teal-500/10 text-teal-500 border-l-4 border-teal-500"
-                    : "text-gray-700 hover:bg-gray-50 hover:pl-5 hover:text-teal-500"
-                }`
-              }
-              onClick={() => setServicesOpen(false)}
-            >
-              <span className="mr-3 text-lg text-teal-500">{service.icon}</span>
-              {service.name}
-            </NavLink>
-          ))}
-        </div>
-      </li>
     </>
   );
 

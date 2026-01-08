@@ -284,7 +284,7 @@ const CanvaSection = () => {
       };
 
       // Save to database
-      const response = await axiosPublic.post("/artworks/save", artwork);
+      const response = await axiosPublic.post(`/file/upload/${user._id}/${user.email}`, artwork);
 
       if (response.data.success) {
         toast.success("Artwork saved successfully!");
