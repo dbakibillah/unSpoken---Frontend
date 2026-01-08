@@ -1,14 +1,15 @@
 import AboutSection from "./components/AboutSection";
-import CanvaSection from "./components/CanvaSection";
+import CanvaSection from "../canvas/CanvaSection";
 import GallerySection from "./components/GallerySection";
 import Hero from "./components/Hero";
+import FindMatch from "./components/FindMatch";
 
 const Home = () => {
     return (
         <div>
             <Hero />
-            <CanvaSection />
             <GallerySection />
+            <FindMatch />
             <AboutSection />
         </div>
     );
